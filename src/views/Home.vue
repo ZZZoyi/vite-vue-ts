@@ -1,6 +1,6 @@
 <template>
   <div>
-    这是home页面
+    <el-button>这里是home页面</el-button>
   </div>
 </template>
 

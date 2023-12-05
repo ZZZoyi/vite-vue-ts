@@ -1,24 +1,26 @@
 <script setup lang="ts">
+import Menu from './views/Menu.vue'
 </script>
 
 <template>
-  <div>
-    <div>初始页面</div>
-    <router-view></router-view>
+  <div class="content">
+    <div class="menu">
+      <Menu></Menu>
+    </div>
+    <div class="view">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+<style scoped lang="sass">
+.content
+  display: flex
+  width: 100%
+  height: 100%
+.menu
+  height: 100%
+.view
+  flex: 1
+  height: 100%
 </style>

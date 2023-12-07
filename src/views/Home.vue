@@ -8,16 +8,17 @@
       <pre>{{ data }}</pre>
     </div>
     <div v-else>Loading...</div>
+    <CustomDirectives></CustomDirectives>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, watch, watchEffect } from 'vue'
 import { useFetch } from '../hooks/useFetch'
+import CustomDirectives from '../components/CustomDirectives.vue'
 
 const count = ref(0)
 const { data, error } = useFetch('https://jsonplaceholder.typicode.com/todos/1')
-console.log(data.value, error.value)
 
 watch(count, (newVal, oldVal) => {
   console.log(newVal, oldVal)

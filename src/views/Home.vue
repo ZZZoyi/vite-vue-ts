@@ -13,12 +13,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, watchEffect } from 'vue'
+import { ref, watch, watchEffect, inject, provide } from 'vue'
 import { useFetch } from '../hooks/useFetch'
 import CustomDirectives from '../components/CustomDirectives.vue'
+import { messageInjectionKey } from '../symbols/homeKeys'
 
 const count = ref(0)
 const { data, error } = useFetch('https://jsonplaceholder.typicode.com/todos/1')
+
+provide(messageInjectionKey, data)
+
+const sysConfig = inject('sysConfig')
+console.log(sysConfig, 'sysConfig')
 
 watch(count, (newVal, oldVal) => {
   console.log(newVal, oldVal)

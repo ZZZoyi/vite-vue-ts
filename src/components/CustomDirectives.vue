@@ -4,16 +4,30 @@
     <div v-color.border="color">测试文字</div>
     <h1>{{ $translate('hello') }}</h1>
     <h1>greetings.hello</h1>
+    <h2>接收父组件的provide</h2>
+    <h3>inject:{{ injectMessage }}</h3>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, DirectiveBinding } from 'vue'
+import { ref, DirectiveBinding, inject, Ref, watchEffect } from 'vue'
+import { messageInjectionKey } from '../symbols/homeKeys'
+
 const vFocus = {
   mounted: (el: HTMLInputElement) => {
     el.focus()
   }
 }
+
+const injectMessage = ref(null)
+
+const message: Ref = inject(messageInjectionKey, ref(null))
+
+watchEffect(() => {
+  if (message.value) {
+    injectMessage.value = message.value
+  }
+})
 
 
 // 指令钩子函数
@@ -44,8 +58,8 @@ const vColor = {
     const { value, arg, modifiers } = binding
     const style: CSSStyleDeclaration = el.style 
     style.color = value
-    console.log(arg, 'arg')
-    console.log(modifiers, 'modifiers')
+    // console.log(arg, 'arg')
+    // console.log(modifiers, 'modifiers')
   }
 }
 

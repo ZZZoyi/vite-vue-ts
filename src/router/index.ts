@@ -4,6 +4,14 @@ const routes = [
   {
     path: '/',
     component: () => import('../views/Home.vue')
+  },
+  {
+    path: '/outer',
+    component: () => import('../views/Outer.vue')
+  },
+  {
+    path: '/pinia',
+    component: () => import('../views/Pinia.vue')
   }
 ]
 

@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "element-plus": "^2.4.3",
+    "pinia": "^2.1.7",
     "vue": "^3.3.8",
     "vue-router": "4"
   },
   "devDependencies": {
+    "@types/node": "^20.10.4",
     "@vitejs/plugin-vue": "^4.5.0",
     "sass": "^1.69.5",
     "typescript": "^5.2.2",

@@ -13,6 +13,10 @@ const routes = [
   {
     path: '/pinia',
     component: () => import('../views/Pinia.vue')
+  },
+  {
+    path: '/todo',
+    component: () => import('../views/Todo.vue')
   }
 ]
 
